@@ -9,8 +9,15 @@ int main(int argc, char **argv)
     {
         int VA = 32, page_size = 4096, bits = 12;
         unsigned int vaddr = atoi(argv[1]);
-        //TODO
+        unsigned int page_numer=vaddr >> bits;
+        unsigned int offset=vaddr & (page_size-1);
+        printf("VA Size[%d] Bits\n",VA);
+        printf("Page Size es [4KB][%d bits]\n",bits);
+        printf("The address [%u]=[%Xh] contains:\n",vaddr ,vaddr);
+        printf("page number=[%u]=[%Xh]\n",page_numer,page_numer);
+        printf("offset=[%u]=[%Xh]\n",offset,offset);
     }
+    
     else
     {
         printf("Usage: ./program <virtual address (decimal)>\n");
